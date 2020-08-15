@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './Header/header.js';
+import Cards from './Cards/Cards.js';
+import HelperMemo from './Memo-helper/helper.js';
 
-function App() {
+
+import {connect} from 'react-redux';
+
+
+const App = props => {
+  console.log('render', props.gameStarted);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header /> 
+      {props.gameStarted ? <Cards /> : null}
+      <HelperMemo/>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    gameStarted: state.isStarted,
+    mode: state.modeForHelper
+  }
+}
+
+export default connect(mapStateToProps)(App);

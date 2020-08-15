@@ -1,0 +1,123 @@
+.card {
+    width: 120px;
+    height: 120px;
+    border: 1px solid #838282;
+    box-shadow: 0.5px 0.5px 0.5px 1px #cfcaca ;
+    margin: 5px;
+    cursor: pointer;
+ }
+ 
+ .backside {
+   background-color: #756d6d;
+   animation: card-rotation 600ms ease-out;
+ }
+ 
+ .red-card {
+    background-color: #e43838;
+    animation: card-rotation-color 600ms ease-in forwards;
+ }
+ 
+ .yellow-card {
+    background-color: #eede02;
+    animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .blue-card {
+    background-color: #5e5edf;
+    animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .pink-card {
+   background-color: #da929e;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .green-card {
+   background-color: #26a322;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .lightblue-card {
+   background-color: #70badd;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ .brown-card {
+   background-color: #4d2c1e;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ .darkgreen-card {
+   background-color: #184916;
+   animation: card-rotation-color 600ms ease-in;
+ } 
+ .purple-card {
+   background-color: #7e1c8b;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ .lime-card {
+   background-color: #bddb0f;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .green0-card {
+   background-color: #3e7e25;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .green1-card {
+   background-color: #88e90a;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .green2-card {
+   background-color: #3bc518;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .green3-card {
+   background-color: #cadf56;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .green4-card {
+   background-color: #4e571a;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .green5-card {
+   background-color: #a6d897;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .green6-card {
+   background-color: #5e662e;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ .green7-card {
+   background-color: #82970b;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .green8-card {
+   background-color: #5bc45b;
+   animation: card-rotation-color 600ms ease-in;
+ }
+ 
+ .green9-card {
+   background-color: #20c256;
+   animation: card-rotation-color 600ms ease-in;
+ }
+
+
+@media (max-width: 680px) {
+  .card {
+      width: 80px;
+      height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+      width: 50px;
+      height: 50px;
+  }
+}
