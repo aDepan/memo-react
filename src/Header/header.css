@@ -1,79 +1,76 @@
-
 .header {
-    display: grid;
-    grid-template-columns: 0.9fr 1fr 0.7fr 0.2fr;
-    align-items: center;
-    height: 4rem;
-    background-color: #229722;
-    color: white;
-    font-family: "Handlee";   
-    margin-bottom: 1rem;
-  }
-  
+  display: grid;
+  grid-template-columns: 0.9fr 1fr 0.7fr 0.2fr;
+  align-items: center;
+  height: 4rem;
+  background-color: #229722;
+  color: white;
+  font-family: 'Handlee';
+  margin-bottom: 1rem;
+}
+
 .header p {
+  grid-column-start: 2;
+  margin: 10px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+button {
+  background-color: #e62142;
+  box-shadow: 1px 1px 1px 1px rgba(207, 202, 202, 0.5);
+  color: white;
+  border: 0.5px solid #c93f56;
+  border-radius: 10%;
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: 'Handlee';
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover,
+button:active {
+  background-color: #f53b5a;
+}
+button:focus {
+  outline: none;
+}
+
+@media (max-width: 680px) {
+  .header {
+    grid-template-columns: 1fr 0.8fr 0.2fr;
+  }
+
+  .header p {
+    text-align: right;
+    grid-column-start: 1;
+  }
+
+  .level-block {
     grid-column-start: 2;
-    margin: 10px;
-    font-size: 2rem;
-    text-align: center;
   }
-
-  button {
-    background-color: #e62142;
-    box-shadow: 1px 1px 1px 1px rgba(207, 202, 202, 0.5);
-    color: white;
-    border: 0.5px solid #c93f56;
-    border-radius: 10%;
-    padding: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    font-family: "Handlee";
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  button:hover,
-  button:active {
-    background-color: #f53b5a;
-  }
-  button:focus {
-    outline: none;
-  }
-
-  @media (max-width: 680px) {
-
-    .header {
-      grid-template-columns: 1fr 0.8fr 0.2fr;  
-    }
-  
-    .header p {
-      text-align: right;
-      grid-column-start: 1;
-    }
-
-    .level-block {
-      grid-column-start: 2;
-    }
-  
-  }
+}
 
 @media (max-width: 480px) {
   .header {
-    grid-template-columns: 1fr 1fr 0.2fr;  
+    grid-template-columns: 1fr 1fr 0.2fr;
   }
   .header p {
     text-align: left;
     font-size: 1.2rem;
   }
   .level-block {
-    font-size:0.8 rem
+    font-size: 0.8 rem;
   }
   label {
     display: none;
   }
   select {
-    font-size:0.8 rem
+    font-size: 0.8 rem;
   }
   button {
-    font-size:0.8 rem
+    font-size: 0.8 rem;
   }
 }

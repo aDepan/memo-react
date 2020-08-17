@@ -1,16 +1,16 @@
 .cards {
-    display: grid;
-    grid-template-columns: repeat(4, 130px);
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 130px);
+  justify-content: center;
+  margin-bottom: 1rem;
+}
 
 .cards-5 {
-    display: grid;
-    grid-template-columns: repeat(5, 130px);
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
+  display: grid;
+  grid-template-columns: repeat(5, 130px);
+  justify-content: center;
+  margin-bottom: 1rem;
+}
 
 @media (max-width: 680px) {
   .cards {
@@ -30,5 +30,3 @@
     grid-template-columns: repeat(4, 60px) !important;
   }
 }
-
-  

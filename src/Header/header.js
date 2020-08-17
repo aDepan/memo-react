@@ -7,46 +7,48 @@ import './header.css';
 import { connect } from 'react-redux';
 
 const Header = props => {
+  let gameMode = props.lvl;
 
-    let gameMode = props.lvl;
-
-    const selectLevelHandler = (event) => {
-        switch(event.target.value){
-            case 'medium':
-                gameMode = 'medium';
-                break;
-            case 'hard':
-                gameMode = 'hard';
-                break;
-            case 'designer':
-                gameMode = 'designer';
-                break;
-            default: 
-                gameMode = 'easy';
-        };
+  const selectLevelHandler = event => {
+    switch (event.target.value) {
+      case 'medium':
+        gameMode = 'medium';
+        break;
+      case 'hard':
+        gameMode = 'hard';
+        break;
+      case 'designer':
+        gameMode = 'designer';
+        break;
+      default:
+        gameMode = 'easy';
     }
-
-    return (    
-        <div className="header">
-            <p>MEMO GAME</p>
-           <Input changed={(event)=> selectLevelHandler(event)}/>
-           <button for="levels" id="selected-levels" onClick={() => props.onStartButton(gameMode)}>Start</button>
-
-        </div>
-    );
-
-}
+  };
+  return (
+    <div className='header'>
+      <p>MEMO GAME</p>
+      <Input changed={event => selectLevelHandler(event)} />
+      <button
+        for='levels'
+        id='selected-levels'
+        onClick={() => props.onStartButton(gameMode)}
+      >
+        Start
+      </button>
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
-    return {
-        lvl: state.level
-    }
+  return {
+    lvl: state.level,
+  };
 };
 
 const mapDispatchToProps = dispatch => {
-    return {
-        onStartButton: (gameMode) => dispatch({type: 'START_GAME', lvl: gameMode})
-    };
+  return {
+    onStartButton: gameMode => dispatch({ type: 'START_GAME', lvl: gameMode }),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

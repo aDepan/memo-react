@@ -1,44 +1,45 @@
 .rules-window {
-    height: auto;
-    width: 43%;
+  height: auto;
+  width: 43%;
+  max-width: 600px;
+  min-width: 350px;
+  position: absolute;
+  left: 30%;
+  top: 20%;
+  z-index: 10;
+  border: 1px solid #229722;
+  background-color: white;
+}
+
+.rules-window p {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 15px;
+  white-space: pre;
+}
+
+.rules-window button {
+  position: relative;
+  left: 40%;
+  width: 50px;
+  margin: 15px;
+}
+
+@media (max-width: 680px) {
+  .rules-window {
+    width: 85%;
+    left: 10%;
     max-width: 600px;
-    min-width: 350px;
-    position: absolute;
-    left: 30%;
-    top: 20%;
-    z-index: 10;
-    border: 1px solid #229722;
-    background-color: white;
   }
-  
+
   .rules-window p {
-    text-align: center;
-    font-size: 1.2rem;
-    margin: 15px;
-    white-space: pre;
+    font-size: 1rem;
   }
-  
+
   .rules-window button {
-    position: relative;
-    left:40%;
-    width: 50px;
-    margin: 15px;
+    left: 35%;
   }
+}
 
-  @media (max-width: 680px) {
-    .rules-window {
-      width: 85%;
-      left: 10%;
-      max-width: 600px;
-    }
-
-    .rules-window p {
-      font-size: 1rem;
-    }
-
-    .rules-window button {
-      left:35%;
-    }
-  }
-
-  @media (max-width: 680px) {}
+@media (max-width: 680px) {
+}
