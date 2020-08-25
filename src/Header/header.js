@@ -6,7 +6,7 @@ import './header.css';
 
 import { connect } from 'react-redux';
 
-const Header = props => {
+export const Header = props => {
   let gameMode = props.lvl;
 
   const selectLevelHandler = event => {
