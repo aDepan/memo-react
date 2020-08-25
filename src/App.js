@@ -1,30 +1,26 @@
 import React from 'react';
 import './App.css';
-import Header from './Header/header.js';
-import Cards from './Cards/Cards.js';
-import HelperMemo from './Memo-helper/helper.js';
+import Header from './Containers/Header/header.js';
+import Cards from './Containers/Cards/Cards.js';
+import HelperMemo from './Containers/Memo-helper/helper.js';
 
-
-import {connect} from 'react-redux';
-
+import { connect } from 'react-redux';
 
 const App = props => {
-  console.log('render', props.gameStarted);
-
   return (
-    <div className="App">
-      <Header /> 
+    <div className='App'>
+      <Header />
       {props.gameStarted ? <Cards /> : null}
-      <HelperMemo/>
+      <HelperMemo />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return {
     gameStarted: state.isStarted,
-    mode: state.modeForHelper
-  }
-}
+    mode: state.modeForHelper,
+  };
+};
 
 export default connect(mapStateToProps)(App);

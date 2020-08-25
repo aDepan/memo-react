@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Input from '../Input/input.js';
+import Input from '../../Components/Input/input.js';
 
 import './header.css';
 

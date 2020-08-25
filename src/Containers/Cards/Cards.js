@@ -3,7 +3,7 @@ import './Cards.css';
 
 import { connect } from 'react-redux';
 
-import Card from '../Card/Card.js';
+import Card from '../../Components/Card/Card.js';
 
 const Cards = props => {
   //console.log('render cards: ', props.cardSet);

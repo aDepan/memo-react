@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import mrMemo from '../pics/mr-memo.png';
+import mrMemo from '../../pics/mr-memo.png';
 import './helper.css';
 
-import Backdrop from '../Backdrop/Backdrop.js';
-import Rules from '../Rules-window/rules.js';
+import Backdrop from '../../Components/Backdrop/Backdrop.js';
+import Rules from '../../Components/Rules-window/rules.js';
 
 import { connect } from 'react-redux';
 

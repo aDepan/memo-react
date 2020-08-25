@@ -53,7 +53,6 @@ const reducer = (state = initialState, action) => {
       newArrCardsToClose[cardsToClose[0].id].isOpened = false;
       newArrCardsToClose[cardsToClose[1].id].isOpened = false;
       let steps = state.numberOfSteps + 1;
-      console.log(steps);
       return {
         ...state,
         cardSet: newArrCardsToClose,
@@ -64,12 +63,11 @@ const reducer = (state = initialState, action) => {
       const newArrCardsToConfirm = [...state.cardSet];
       newArrCardsToConfirm[cardsToConfirm[0].id].isConfirmed = true;
       newArrCardsToConfirm[cardsToConfirm[1].id].isConfirmed = true;
-      let steps1 = state.numberOfSteps + 1;
-      console.log(steps1);
+      let stps = state.numberOfSteps + 1;
       return {
         ...state,
         cardSet: newArrCardsToConfirm,
-        numberOfSteps: steps1,
+        numberOfSteps: stps,
       };
     case 'END_GAME':
       return {
