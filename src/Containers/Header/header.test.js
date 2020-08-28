@@ -28,7 +28,6 @@ describe('<Header />', () => {
     getGameMode.mockReturnValue('easy');
 
     const wrapper = shallow(<Header />);
-    console.log(wrapper);
     expect(wrapper.find(Input)).toHaveLength(1);
   });
 });

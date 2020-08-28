@@ -53,7 +53,12 @@ const HelperMemo = props => {
     <div className={moduleClass} onClick={openRulesHandler}>
       <Backdrop show={isRulesShowed} clicked={closeRulesHandler} />
       <Rules show={isRulesShowed} clicked={closeRulesHandler} />
-      <img src={mrMemo} alt='hello player' className={imgClass} />
+      <img
+        src={mrMemo}
+        alt='hello player'
+        className={imgClass}
+        onClick={openRulesHandler}
+      />
       <p className={textClass}>{helperText}</p>
     </div>
   );
