@@ -1,74 +1,55 @@
 import React, { useEffect } from 'react';
 import './Cards.css';
 
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Card from '../../Components/Card/Card.js';
 
+import { getGameMode, getCardSet } from '../../store/selectors.js';
+
 const Cards = props => {
   //console.log('render cards: ', props.cardSet);
+  let lvl = useSelector(getGameMode);
+  let cardSet = useSelector(getCardSet);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    let openedCards = props.cardSet.filter(
-      el => el.isOpened && !el.isConfirmed
-    );
+    let openedCards = cardSet.filter(el => el.isOpened && !el.isConfirmed);
     let openedCardsNumbers = openedCards.length;
     if (openedCardsNumbers === 2) {
       //console.log('still opened cards:', openedCards);
       if (openedCards[0].color === openedCards[1].color) {
-        props.onConfirmedCards(openedCards);
-        let confirmedCards = props.cardSet.filter(el => el.isConfirmed);
-        if (confirmedCards.length === props.cardSet.length) {
-          props.onEndGame();
+        dispatch({ type: 'CONFIRM_CARDS', openCards: openedCards });
+        let confirmedCards = cardSet.filter(el => el.isConfirmed);
+        if (confirmedCards.length === cardSet.length) {
+          dispatch({ type: 'END_GAME' });
         }
       } else {
         setTimeout(() => {
-          props.onClosingCards(openedCards);
+          dispatch({ type: 'CLOSE_CARDS', openCards: openedCards });
         }, 800);
       }
     }
-  }, [props, props.cardSet]);
+  }, [dispatch, cardSet]);
 
   //console.log('after: ', props.cardSet);
 
-  let cardsClasses =
-    props.lvl === 'hard' || props.lvl === 'designer' ? 'cards-5' : 'cards';
+  let cardsClasses = lvl === 'hard' || lvl === 'designer' ? 'cards-5' : 'cards';
 
   return (
     <div className={cardsClasses}>
-      {props.cardSet.map((card, index) => (
+      {cardSet.map((card, index) => (
         <Card
           key={index}
           isOpened={card.isOpened}
           isConfirmed={card.isConfirmed}
           color={card.color}
-          onClick={() => props.ontoggleCard(index)}
+          onClick={() => dispatch({ type: 'TOGGLE_CARD', indx: index })}
         />
       ))}
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    lvl: state.level,
-    //allPairs: state.numberOfPairs,
-    cardSet: state.cardSet,
-    //steps: state.numberOfSteps
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    ontoggleCard: index => dispatch({ type: 'TOGGLE_CARD', indx: index }),
-    onClosingCards: arrayOfCards =>
-      dispatch({ type: 'CLOSE_CARDS', openCards: arrayOfCards }),
-    onConfirmedCards: arrayOfCards =>
-      dispatch({ type: 'CONFIRM_CARDS', openCards: arrayOfCards }),
-    onEndGame: () => dispatch({ type: 'END_GAME' }),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Cards);
-
-//useDispatch, useSelector
+export default Cards;

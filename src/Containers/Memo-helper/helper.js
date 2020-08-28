@@ -5,16 +5,21 @@ import './helper.css';
 import Backdrop from '../../Components/Backdrop/Backdrop.js';
 import Rules from '../../Components/Rules-window/rules.js';
 
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
+
+import { getModeForHelper, getNumberOfSteps } from '../../store/selectors.js';
 
 const HelperMemo = props => {
   const [isRulesShowed, setRulesShowed] = useState(false);
+
+  let mode = useSelector(getModeForHelper);
+  let steps = useSelector(getNumberOfSteps);
 
   let moduleClass = 'helper';
   let imgClass = 'memo-helper';
   let textClass = 'memo-helper-text';
   let helperText = "Hi! Let's play together!";
-  switch (props.mode) {
+  switch (mode) {
     case 'greet':
       moduleClass = 'greet';
       imgClass = 'memo-greet';
@@ -25,7 +30,7 @@ const HelperMemo = props => {
       helperText = 'Do you know how to play? \n No? Click me!';
       break;
     case 'win':
-      helperText = `Congrats! You've found all pairs! \n It took ${props.steps} steps`;
+      helperText = `Congrats! You've found all pairs! \n It took ${steps} steps`;
       break;
     case 'designer':
       helperText = 'Find all green cards!';
@@ -38,7 +43,7 @@ const HelperMemo = props => {
   };
 
   const openRulesHandler = () => {
-    if (props.mode === 'start' || props.mode === 'designer') {
+    if (mode === 'start' || mode === 'designer') {
       setRulesShowed(!isRulesShowed);
     }
     console.log('clicked', isRulesShowed);
@@ -54,11 +59,4 @@ const HelperMemo = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    mode: state.modeForHelper,
-    steps: state.numberOfSteps,
-  };
-};
-
-export default connect(mapStateToProps)(HelperMemo);
+export default HelperMemo;

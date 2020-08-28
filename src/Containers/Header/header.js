@@ -4,10 +4,14 @@ import Input from '../../Components/Input/input.js';
 
 import './header.css';
 
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { getGameMode } from '../../store/selectors.js';
 
 export const Header = props => {
-  let gameMode = props.lvl;
+  let gameMode = useSelector(getGameMode);
+
+  const dispatch = useDispatch();
 
   const selectLevelHandler = event => {
     switch (event.target.value) {
@@ -31,7 +35,7 @@ export const Header = props => {
       <button
         for='levels'
         id='selected-levels'
-        onClick={() => props.onStartButton(gameMode)}
+        onClick={() => dispatch({ type: 'START_GAME', lvl: gameMode })}
       >
         Start
       </button>
@@ -39,16 +43,4 @@ export const Header = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    lvl: state.level,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onStartButton: gameMode => dispatch({ type: 'START_GAME', lvl: gameMode }),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;
