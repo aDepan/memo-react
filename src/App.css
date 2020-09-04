@@ -2,3 +2,9 @@
   margin: 0;
   font-family: 'Handlee';
 }
+
+.game-field {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  justify-content: center;
+}
