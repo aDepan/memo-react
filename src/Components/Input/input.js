@@ -1,35 +1,77 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './input.css';
 
-const input = props => {
+import Icons from '../Icons/Icons.js';
+
+//import Level from '../Level/Level.js';
+
+const Input = ({ type, gameMode, clicked, changed }) => {
   let inputElement = null;
+
+  const [chosenLvl, setChosenLvl] = useState('');
 
   const elementConfig = {
     options: [
-      { value: 'easy', displayValue: 'Easy' },
-      { value: 'medium', displayValue: 'Medium' },
-      { value: 'hard', displayValue: 'Hard' },
-      { value: 'designer', displayValue: 'I am designer' },
+      { value: 'easy', displayValue: 'Easy', cards: 4, checked: false },
+      { value: 'medium', displayValue: 'Medium', cards: 9, checked: false },
+      { value: 'hard', displayValue: 'Hard', cards: 16, checked: false },
+      {
+        value: 'designer',
+        displayValue: 'I am designer',
+        cards: 16,
+        checked: false,
+      },
     ],
   };
 
-  inputElement = (
-    <select onChange={props.changed}>
-      {elementConfig.options.map(option => (
-        <option key={option.value} value={option.value}>
-          {option.displayValue}
-        </option>
-      ))}
-    </select>
-  );
+  let className;
 
-  return (
-    <div className='level-block'>
-      <label for='levels'>Level:</label>
-      {inputElement}
-    </div>
-  );
+  const onClickHandler = value => {
+    setChosenLvl(value);
+    changed(value);
+  };
+
+  if (type === 'radioBtn') {
+    inputElement = (
+      <div className='start-levels-block'>
+        {elementConfig.options.map((option, idx) => {
+          option.value === chosenLvl
+            ? (className = 'one-level-active')
+            : (className = 'one-level');
+          return (
+            <div
+              className={className}
+              onClick={() => onClickHandler(option.value)}
+              key={idx}
+            >
+              <label for={option.value}>
+                {option.displayValue}
+                <Icons number={option.cards} key={idx} />
+              </label>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
+  if (type === 'dropdown') {
+    inputElement = (
+      <div className='header-levels-block'>
+        <label for='levels'>Level:</label>
+        <select onChange={changed}>
+          {elementConfig.options.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.displayValue}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+  }
+
+  return inputElement;
 };
 
-export default input;
+export default Input;

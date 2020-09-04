@@ -1,0 +1,17 @@
+.icons-set {
+  display: grid;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.cards-4 {
+  grid-template-columns: repeat(2, 62px);
+}
+
+.cards-9 {
+  grid-template-columns: repeat(3, 42px);
+}
+
+.cards-16 {
+  grid-template-columns: repeat(4, 32px);
+}

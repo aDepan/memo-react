@@ -7,6 +7,7 @@ const initialState = {
   cardSet: [],
   modeForHelper: 'greet',
   numberOfSteps: 0,
+  scoresTable: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -70,9 +71,14 @@ const reducer = (state = initialState, action) => {
         numberOfSteps: stps,
       };
     case 'END_GAME':
+      let newResult = { lvl: state.level, nbrOfStps: state.numberOfSteps };
+      const newScoresArr = [...state.scoresTable];
+      newScoresArr.push(newResult);
+
       return {
         ...state,
         modeForHelper: 'win',
+        scoresTable: newScoresArr,
       };
     default:
       return state;

@@ -1,0 +1,19 @@
+.grey-square {
+  margin: 1px;
+  background-color: #756d6d;
+}
+
+.card4 {
+  height: 60px;
+  width: 60px;
+}
+
+.card9 {
+  height: 40px;
+  width: 40px;
+}
+
+.card16 {
+  height: 30px;
+  width: 30px;
+}

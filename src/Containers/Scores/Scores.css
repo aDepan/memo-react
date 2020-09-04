@@ -1,0 +1,8 @@
+.scores-table {
+  text-align: center;
+  font-size: 1.2rem;
+}
+.scores-table p {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,28 @@
+.dropdown-block {
+  margin: 10px 10px;
+  grid-column-start: 3;
+  text-align: right;
+}
+
+.radioBtn-block {
+  margin: 10px 10px;
+  text-align: center;
+}
+
+.radioBtn-block-chosen {
+  margin: 10px 10px;
+  text-align: center;
+  background-color: aqua;
+}
+
+@media (max-width: 680px) {
+  .level-block {
+    grid-column-start: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .level-block {
+    font-size: 0.8 rem;
+  }
+}
