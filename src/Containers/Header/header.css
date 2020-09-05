@@ -16,23 +16,23 @@
   text-align: center;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 740px) {
   .header {
-    grid-template-columns: 1fr 0.8fr 0.2fr;
+    grid-template-columns: 1fr 0.8fr;
   }
 
   .header p {
-    text-align: right;
+    text-align: left;
     grid-column-start: 1;
+    grid-column-end: 3;
   }
 }
 
 @media (max-width: 480px) {
   .header {
-    grid-template-columns: 1fr 1fr 0.2fr;
+    grid-template-columns: 1fr 0.7fr;
   }
   .header p {
-    text-align: left;
     font-size: 1.2rem;
   }
 }

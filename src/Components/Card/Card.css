@@ -127,14 +127,14 @@
   animation: card-rotation-color 600ms ease-in;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 740px) {
   .card {
     width: 80px;
     height: 80px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .card {
     width: 70px;
     height: 70px;

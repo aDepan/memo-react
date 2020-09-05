@@ -1,13 +1,3 @@
-select {
-  font-family: 'Handlee';
-  font-size: 1rem;
-}
-
-.header-levels-block {
-  display: inline;
-  text-align: right;
-}
-
 .start-levels-block {
   text-align: center;
   display: grid;
@@ -30,11 +20,11 @@ select {
   outline: solid #229722 2px;
 }
 
-@media (max-width: 480px) {
-  .header-levels-block label {
-    display: none;
+@media (max-width: 680px) {
+  .start-levels-block {
+    grid-template-columns: repeat(2, 150px);
   }
-  .header-levels-block select {
-    font-size: 0.8 rem;
+  .start-levels-block label {
+    margin-bottom: 10px;
   }
 }

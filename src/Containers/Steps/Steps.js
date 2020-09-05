@@ -7,10 +7,11 @@ import { getNumberOfSteps } from '../../store/selectors.js';
 
 const Steps = () => {
   let steps = useSelector(getNumberOfSteps);
+
+  let stepsEl = `${steps} \n STEPS`;
   return (
     <div className='current-steps'>
-      <p className='steps'>{steps} </p>
-      <p> STEPS</p>
+      <p>{stepsEl}</p>
     </div>
   );
 };

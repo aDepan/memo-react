@@ -12,17 +12,23 @@
   margin-bottom: 1rem;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 740px) {
   .cards {
     grid-template-columns: repeat(4, 90px) !important;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
   }
 
   .cards-5 {
-    grid-template-columns: repeat(4, 90px) !important;
+    grid-template-columns: repeat(5, 90px) !important;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .cards {
     grid-template-columns: repeat(4, 80px) !important;
   }

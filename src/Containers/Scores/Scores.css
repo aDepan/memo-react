@@ -6,3 +6,27 @@
   margin-top: 5px;
   margin-bottom: 10px;
 }
+
+.best-result {
+  text-align: center;
+  font-size: 1.2rem;
+  white-space: pre;
+}
+
+@media (max-width: 740px) {
+  .scores-table {
+    display: none;
+  }
+  .best-result {
+    font-size: 1.1rem;
+  }
+  .best-result p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .best-result {
+    font-size: 1.1rem;
+  }
+}

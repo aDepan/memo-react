@@ -43,3 +43,9 @@
     transform: scale(0.95);
   }
 }
+
+@media (max-width: 680px) {
+  .memo-greet {
+    height: 120px;
+  }
+}

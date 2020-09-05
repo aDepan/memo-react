@@ -15,3 +15,17 @@
 .cards-16 {
   grid-template-columns: repeat(4, 32px);
 }
+
+@media (max-width: 480px) {
+  .cards-4 {
+    grid-template-columns: repeat(2, 42px);
+  }
+
+  .cards-9 {
+    grid-template-columns: repeat(3, 29px);
+  }
+
+  .cards-16 {
+    grid-template-columns: repeat(4, 22px);
+  }
+}

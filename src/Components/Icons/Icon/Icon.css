@@ -17,3 +17,20 @@
   height: 30px;
   width: 30px;
 }
+
+@media (max-width: 480px) {
+  .card4 {
+    height: 40px;
+    width: 40px;
+  }
+
+  .card9 {
+    height: 27px;
+    width: 27px;
+  }
+
+  .card16 {
+    height: 20px;
+    width: 20px;
+  }
+}

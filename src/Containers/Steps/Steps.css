@@ -1,8 +1,22 @@
 .current-steps {
   text-align: center;
+  white-space: pre;
+  font-size: 2rem;
 }
 
-.steps {
-  font-size: 4.5rem;
-  margin: 5px;
+@media (max-width: 740px) {
+  .current-steps {
+    font-size: 1.5rem;
+  }
+
+  .current-steps p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .current-steps {
+    text-align: center;
+    font-size: 1.1rem;
+  }
 }

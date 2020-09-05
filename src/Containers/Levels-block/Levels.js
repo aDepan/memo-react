@@ -2,8 +2,11 @@ import React from 'react';
 
 import './Levels.css';
 
-import Input from '../../Components/Input/input.js';
 import Button from '../../Components/Button/Button.js';
+
+import Selector from '../../Components/Input/Selector/Selector.js';
+
+import IconsSelector from '../../Components/Input/Icons-selector/IconsSelector.js';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -14,21 +17,32 @@ const Levels = props => {
 
   const dispatch = useDispatch();
 
-  const selectLevelHandler = event => {
-    if (typeof event === 'string') {
-      gameMode = event;
-    } else {
-      gameMode = event.target.value;
-    }
+  const selectLevelEventHandler = event => {
+    gameMode = event.target.value;
   };
+
+  const selectLevelValueHandler = value => {
+    gameMode = value;
+  };
+
+  let inputEl;
+
+  if (props.typeOfEl === 'dropdown') {
+    inputEl = (
+      <Selector
+        changed={event => selectLevelEventHandler(event)}
+        gameMode={gameMode}
+      />
+    );
+  } else if (props.typeOfEl === 'radioBtn') {
+    inputEl = (
+      <IconsSelector changed={event => selectLevelValueHandler(event)} />
+    );
+  }
 
   return (
     <div className={`${props.typeOfEl}-block`}>
-      <Input
-        changed={event => selectLevelHandler(event)}
-        type={props.typeOfEl}
-        gameMode={gameMode}
-      />
+      {inputEl}
       <Button
         gameMode={gameMode}
         btnType={props.buttonType}

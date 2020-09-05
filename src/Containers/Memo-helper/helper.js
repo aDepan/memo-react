@@ -46,7 +46,7 @@ const HelperMemo = props => {
     if (mode === 'start' || mode === 'designer') {
       setRulesShowed(!isRulesShowed);
     }
-    console.log('clicked', isRulesShowed);
+    //console.log('clicked', isRulesShowed);
   };
 
   return (
