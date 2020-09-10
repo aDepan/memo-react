@@ -17,13 +17,9 @@ const Selector = ({ changed, gameMode }) => {
     ],
   };
 
-  console.log(gameMode);
-
   elementConfig.options.map(el =>
     el.value === gameMode ? (el.selected = true) : (el.selected = false)
   );
-
-  console.log(elementConfig.options);
 
   return (
     <div className='header-levels-block'>

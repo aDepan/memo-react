@@ -14,6 +14,7 @@
   text-align: center;
   cursor: pointer;
   animation: helper-attention 800ms;
+  padding-bottom: 2rem;
 }
 
 .memo-helper {

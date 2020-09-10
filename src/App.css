@@ -1,6 +1,8 @@
 .App {
   margin: 0;
   font-family: 'Handlee';
+  position: relative;
+  min-height: 100vh;
 }
 
 .game-field {

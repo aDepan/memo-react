@@ -5,6 +5,7 @@ import './App.css';
 import Header from './Containers/Header/header.js';
 import Cards from './Containers/Cards/Cards.js';
 import HelperMemo from './Containers/Memo-helper/helper.js';
+import Footer from './Components/Footer/Footer.js';
 
 import Scores from './Containers/Scores/Scores.js';
 import Steps from './Containers/Steps/Steps.js';
@@ -27,6 +28,7 @@ const App = props => {
       ) : null}
       <HelperMemo />
       {!gameStarted ? <Levels typeOfEl='radioBtn' buttonType='bigBtn' /> : null}
+      <Footer />
     </div>
   );
 };
