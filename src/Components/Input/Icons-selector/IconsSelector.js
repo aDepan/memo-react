@@ -41,7 +41,7 @@ const IconsSelector = ({ changed }) => {
             onClick={() => onClickHandler(option.value)}
             key={idx}
           >
-            <label for={option.value}>
+            <label>
               {option.displayValue}
               <Icons number={option.cards} key={idx} />
             </label>
