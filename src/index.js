@@ -7,13 +7,16 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import reducer from './store/reducer';
 import { Provider } from 'react-redux';
+import { CookiesProvider } from 'react-cookie';
 
 const store = createStore(reducer);
 
 ReactDOM.render(
+  <CookiesProvider>
     <Provider store={store}>
       <App />
-    </Provider>,
+    </Provider>
+  </CookiesProvider>,
   document.getElementById('root')
 );
 

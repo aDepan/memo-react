@@ -10,8 +10,9 @@ const initialState = {
   scoresTable: [],
 };
 
-const reducer = (state = initialState, action) => {
+const Reducer = (state = initialState, action) => {
   let cardsArray = [];
+
   switch (action.type) {
     case 'START_GAME':
       const [colorsArray, pairs] = createColorsArray(action.lvl);
@@ -73,16 +74,23 @@ const reducer = (state = initialState, action) => {
     case 'END_GAME':
       let newResult = { lvl: state.level, nbrOfStps: state.numberOfSteps };
       const newScoresArr = [...state.scoresTable];
-      newScoresArr.push(newResult);
+      newScoresArr.unshift(newResult);
 
       return {
         ...state,
         modeForHelper: 'win',
         scoresTable: newScoresArr,
       };
+    case 'UPDATE_SCORES':
+      const scoresFromCookies = action.savedScores;
+
+      return {
+        ...state,
+        scoresTable: scoresFromCookies,
+      };
     default:
       return state;
   }
 };
 
-export default reducer;
+export default Reducer;

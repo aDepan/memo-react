@@ -1,0 +1,20 @@
+.cookies-notice {
+  border: 1px solid;
+  padding: 10px;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  text-align: center;
+  background: #e2e2e2;
+  opacity: 0.9;
+  border-radius: 8px;
+  margin: 1px;
+}
+
+.cookies-notice p {
+  white-space: pre;
+}
+
+.notice-hide {
+  display: none;
+}

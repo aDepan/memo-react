@@ -9,7 +9,7 @@ const Button = props => {
       className={props.btnType}
       onClick={props.clicked}
     >
-      Start
+      {props.text}
     </button>
   );
 };

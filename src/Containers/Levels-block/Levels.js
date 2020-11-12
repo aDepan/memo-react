@@ -46,6 +46,7 @@ const Levels = props => {
       <Button
         gameMode={gameMode}
         btnType={props.buttonType}
+        text='Start'
         clicked={() => dispatch({ type: 'START_GAME', lvl: gameMode })}
       />
     </div>

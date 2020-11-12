@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { getScoresTable, getGameMode } from '../../store/selectors.js';
 
 import Score from '../../Components/Score/Score';
 import './Scores.css';
+import { useCookies } from 'react-cookie';
 
 const Scores = props => {
   const [bestResult, setBestResult] = useState(1000);
 
   let scoresTable = useSelector(getScoresTable);
+
+  const [cookie, setCookie] = useCookies(['savedScores']);
+
+  const dispatch = useDispatch();
+
+  if (cookie.savedScores) {
+    if (cookie.savedScores.length !== scoresTable.length) {
+      setCookie('savedScores', scoresTable, { path: '/' });
+      if (cookie.savedScores.length > scoresTable.length) {
+        dispatch({ type: 'UPDATE_SCORES', savedScores: cookie.savedScores });
+      }
+    }
+  } else {
+    setCookie('savedScores', []);
+  }
+
   let gameMode = useSelector(getGameMode);
 
   const doneGames = scoresTable.filter(el => el.lvl === gameMode);
@@ -41,9 +58,11 @@ const Scores = props => {
       </div>
       <div className='scores-table'>
         <p>SCORES TABLE:</p>
-        {scoresTable.map((el, idx) => (
-          <Score level={el.lvl} steps={el.nbrOfStps} key={idx} />
-        ))}
+        <div className='results'>
+          {scoresTable.map((el, idx) => (
+            <Score level={el.lvl} steps={el.nbrOfStps} key={idx} />
+          ))}
+        </div>
       </div>
     </div>
   );
