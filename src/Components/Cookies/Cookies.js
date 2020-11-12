@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import './Cookies.css';
 import Button from '../Button/Button';
 
+//new comment
+
 const CookiesNotice = () => {
   const [isNoticeShown, setNoticeShown] = useState(null);
 
