@@ -16,7 +16,7 @@
   grid-template-columns: repeat(4, 32px);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .cards-4 {
     grid-template-columns: repeat(2, 42px);
   }

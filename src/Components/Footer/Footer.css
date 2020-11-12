@@ -3,8 +3,8 @@
   color: white;
   margin-bottom: 0;
   position: absolute;
-  bottom: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .footer p {
@@ -12,4 +12,10 @@
   padding: 0.8rem;
   margin-bottom: 0;
   margin-top: 0;
+}
+
+@media (min-height: 720px) and (min-width: 680px) {
+  .footer {
+    bottom: 0;
+  }
 }

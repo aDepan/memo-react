@@ -21,7 +21,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .level-block {
     font-size: 0.8 rem;
   }

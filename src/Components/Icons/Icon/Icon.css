@@ -18,7 +18,7 @@
   width: 30px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .card4 {
     height: 40px;
     width: 40px;

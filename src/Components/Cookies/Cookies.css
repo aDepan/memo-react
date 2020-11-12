@@ -10,11 +10,17 @@
   border-radius: 8px;
   margin: 1px;
 }
-
 .cookies-notice p {
-  white-space: pre;
+  text-align: center;
+  color: black;
 }
 
 .notice-hide {
   display: none;
+}
+
+@media (min-width: 680px) {
+  .cookies-notice p {
+    white-space: pre;
+  }
 }
