@@ -12,6 +12,7 @@ const Scores = props => {
   const [bestResult, setBestResult] = useState(1000);
 
   let scoresTable = useSelector(getScoresTable);
+  let gameMode = useSelector(getGameMode);
 
   const [cookie, setCookie] = useCookies(['savedScores']);
 
@@ -27,8 +28,6 @@ const Scores = props => {
   } else {
     setCookie('savedScores', []);
   }
-
-  let gameMode = useSelector(getGameMode);
 
   const doneGames = scoresTable.filter(el => el.lvl === gameMode);
 

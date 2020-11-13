@@ -3,9 +3,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import './App.css';
 import Header from './Containers/Header/header.js';
-
+import HelperMemoGreet from './Containers/Memo-helper/memo-greet.js';
 import Cards from './Containers/Cards/Cards.js';
-import HelperMemo from './Containers/Memo-helper/helper.js';
+
 import Footer from './Components/Footer/Footer.js';
 
 import Scores from './Containers/Scores/Scores.js';
@@ -21,7 +21,7 @@ const App = props => {
   return (
     <div className='App'>
       <Header />
-
+      <HelperMemoGreet />
       {gameStarted ? (
         <div className='game-field'>
           <Steps />
@@ -29,7 +29,7 @@ const App = props => {
           <Scores />
         </div>
       ) : null}
-      <HelperMemo />
+
       {!gameStarted ? <Levels typeOfEl='radioBtn' buttonType='bigBtn' /> : null}
 
       <Footer />

@@ -1,16 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, createRef } from 'react';
 import './Cards.css';
 
 import { useSelector, useDispatch } from 'react-redux';
 
 import Card from '../../Components/Card/Card.js';
+import HelperMemo from '../Memo-helper/helper.js';
 
 import { getGameMode, getCardSet } from '../../store/selectors.js';
+import PlayAgain from '../../Components/PlayAgain/PlayAgain.js';
 
 const Cards = props => {
   //console.log('render cards: ', props.cardSet);
   let lvl = useSelector(getGameMode);
   let cardSet = useSelector(getCardSet);
+
+  let myRef = createRef();
 
   const dispatch = useDispatch();
 
@@ -31,23 +35,27 @@ const Cards = props => {
         }, 800);
       }
     }
-  }, [dispatch, cardSet]);
-
-  //console.log('after: ', props.cardSet);
+    console.log(myRef.current.offsetWidth);
+  }, [dispatch, cardSet, myRef]);
 
   let cardsClasses = lvl === 'hard' || lvl === 'designer' ? 'cards-5' : 'cards';
 
   return (
-    <div className={cardsClasses}>
-      {cardSet.map((card, index) => (
-        <Card
-          key={index}
-          isOpened={card.isOpened}
-          isConfirmed={card.isConfirmed}
-          color={card.color}
-          onClick={() => dispatch({ type: 'TOGGLE_CARD', indx: index })}
-        />
-      ))}
+    <div className='cards-grid'>
+      <PlayAgain level={lvl} />
+      <div className={cardsClasses} ref={myRef}>
+        {cardSet.map((card, index) => (
+          <Card
+            key={index}
+            isOpened={card.isOpened}
+            isConfirmed={card.isConfirmed}
+            color={card.color}
+            onClick={() => dispatch({ type: 'TOGGLE_CARD', indx: index })}
+          />
+        ))}
+      </div>
+
+      <HelperMemo />
     </div>
   );
 };

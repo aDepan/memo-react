@@ -20,12 +20,6 @@ const HelperMemo = props => {
   let textClass = 'memo-helper-text';
   let helperText = "Hi! Let's play together!";
   switch (mode) {
-    case 'greet':
-      moduleClass = 'greet';
-      imgClass = 'memo-greet';
-      textClass = 'memo-greet-text';
-      helperText = "Do you wanna play? Pick a level and click 'Start'!";
-      break;
     case 'start':
       helperText = 'Do you know how to play? \n No? Click me!';
       break;

@@ -4,11 +4,7 @@ import './Button.css';
 
 const Button = props => {
   return (
-    <button
-      id='selected-levels'
-      className={props.btnType}
-      onClick={props.clicked}
-    >
+    <button className={props.btnType} onClick={props.clicked}>
       {props.text}
     </button>
   );
