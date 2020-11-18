@@ -3,9 +3,9 @@ import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Header from './header';
-import Input from '../../Components/Input/input';
+import Levels from '../../Containers/Levels-block/Levels.js';
 
-import { getGameMode } from '../../store/selectors.js';
+import { getGameStarted } from '../../store/selectors.js';
 
 configure({ adapter: new Adapter() });
 
@@ -24,10 +24,17 @@ describe('<Header />', () => {
     jest.restoreAllMocks();
   });
 
-  it('should render one <Input />', () => {
-    getGameMode.mockReturnValue('easy');
+  it('show dropdown if game started', () => {
+    getGameStarted.mockReturnValue(true);
 
     const wrapper = shallow(<Header />);
-    expect(wrapper.find(Input)).toHaveLength(1);
+    expect(wrapper.find(Levels)).toHaveLength(1);
+  });
+
+  it('do not show dropdown if game not started', () => {
+    getGameStarted.mockReturnValue(false);
+
+    const wrapper = shallow(<Header />);
+    expect(wrapper.find(Levels)).toHaveLength(0);
   });
 });

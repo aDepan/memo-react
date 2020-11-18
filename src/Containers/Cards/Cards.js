@@ -1,4 +1,4 @@
-import React, { useEffect, createRef } from 'react';
+import React, { useEffect } from 'react';
 import './Cards.css';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,8 +13,6 @@ const Cards = props => {
   //console.log('render cards: ', props.cardSet);
   let lvl = useSelector(getGameMode);
   let cardSet = useSelector(getCardSet);
-
-  let myRef = createRef();
 
   const dispatch = useDispatch();
 
@@ -35,15 +33,14 @@ const Cards = props => {
         }, 800);
       }
     }
-    console.log(myRef.current.offsetWidth);
-  }, [dispatch, cardSet, myRef]);
+  }, [dispatch, cardSet]);
 
   let cardsClasses = lvl === 'hard' || lvl === 'designer' ? 'cards-5' : 'cards';
 
   return (
     <div className='cards-grid'>
       <PlayAgain level={lvl} />
-      <div className={cardsClasses} ref={myRef}>
+      <div className={cardsClasses}>
         {cardSet.map((card, index) => (
           <Card
             key={index}
